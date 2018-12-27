@@ -1,0 +1,22 @@
+{
+  "name": "react_learning",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZevFung/react_learning.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ZevFung/react_learning/issues"
+  },
+  "homepage": "https://github.com/ZevFung/react_learning#readme",
+  "dependencies": {
+    "classnames": "^2.2.6"
+  }
+}

@@ -86,3 +86,18 @@ ReactDOM.render是React的最基本方法用于将模板转为HTML语言，并�
         document.getElementById("container")
       )
     </script>
+
+
+
+6.React行内样式扩展
+在 React 中，行内样式并不是以字符串的形式出现，而是通过一个特定的样式对象来指定。在这个对象中，key 值是用驼峰形式表示的样式名，而其对应的值则是样式值，通常来说这个值是个字符串,如果是数字就不是字符串,不需要引号。
+
+```
+	var divStyle = {
+  		color: 'white',
+  		backgroundImage: 'url(' + imgUrl + ')',
+  		WebkitTransition: 'all', // 注意这里的首字母'W'是大写
+  		msTransition: 'all' // 'ms'是唯一一个首字母需要小写的浏览器前缀
+	};
+```
+另外浏览器前缀除了ms以外首字母应该大写,所以这里的WebkitTransition的W是大写的。

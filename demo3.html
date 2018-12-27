@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+
+    <!-- 15版本 -->
+    <!-- <script src="https://unpkg.com/react@15.3.2/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.js"></script> -->
+
+     <!-- 16版本 -->
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+    
+    </script>
+
+<script type="text/javascript">
+    function Person(name,age)
+    {
+      this.name = name;
+      this.age=age;
+    }
+    Person.prototype.say=function()
+    {
+      return "我的名字是"+this.name+",年龄"+this.age;
+    }
+
+    var person = new Person("fzw",28);
+    console.log(person.say());
+
+
+    class Cat {
+      constructor(name,age){
+        console.log("哈哈哈哈哈哈哈")
+        this.name = name;
+        this.age=age;
+      }
+
+      say()
+      {
+        return "say:我的一只猫，名字是"+this.name+",年龄"+this.age;
+      }
+    }
+    Cat.prototype.say1= function(){
+      return "say1:我的一只猫，名字是"+this.name+",年龄"+this.age;
+    };
+    Object.assign(Cat.prototype,{
+      getName:function(){
+        return this.name;
+      },
+      getAge:function(){
+        return this.age;
+      }
+    })
+    console.log("-------------------")
+    var cat = new Cat("小黑",26);
+    console.log(cat.say())
+    console.log(cat.say1())
+    console.log(cat.getName())
+    console.log(cat.getAge())
+    console.log("-------------------")
+    var cat = new Cat("小黑1",261);
+    console.log(cat.say())
+    console.log(cat.say1())
+    console.log(cat.getName())
+    console.log(cat.getAge())
+
+    class Dog{
+      constructor(name,age)
+      {
+        // return new Cat("ffffzzzzwwww",30);
+
+        this.name = name;
+        this.age=age;
+        this.say4 = function(){
+          return "say4";
+        }
+      }
+      say()
+      {
+        return "say:我的一只狗，名字是"+this.name+",年龄"+this.age;
+      }
+      say2()
+      {
+        return "say2:我的一只狗，名字是"+this.name+",年龄"+this.age;
+      }
+      say3()
+      {
+        return "say3:我的一只狗，名字是"+this.name1;
+      }
+    }
+    Dog.prototype.say1= function(){
+      return "say1:我的一只狗，名字是"+this.name+",年龄"+this.age;
+    };
+    Dog.prototype.name1= "232323大幅度来看"
+    Object.assign(Dog.prototype,{
+      getName:function(){
+        return this.name;
+      },
+      getAge:function(){
+        return this.age;
+      }
+    })
+    console.log("-------------------")
+    var dog = new Dog("小白",31);
+    var dog2 = new Dog("小白2",312);
+    dog.__proto__.sub=function(){
+    return this.name+this.age;
+    }
+    console.log(dog.sub())
+    console.log(dog2.sub())
+    dog2.__proto__.sub=function(){
+    return this.name+"````"+this.age;
+    }
+    console.log(dog.sub())
+    console.log(dog2.sub())
+    console.log(dog.say())
+    console.log(dog.say1())
+    console.log(dog.getName())
+    console.log(dog.getAge())
+    console.log(dog.say2())
+    console.log(dog.hasOwnProperty("name"))
+    console.log(dog.hasOwnProperty("name1"))
+    console.log(dog.hasOwnProperty("age"))
+    console.log(dog.hasOwnProperty("say"))
+    console.log(dog.hasOwnProperty("say1"))
+    console.log(dog.hasOwnProperty("say2"))
+    console.log(dog.hasOwnProperty("say4"))
+    console.log(dog.say3())
+    console.log(dog.say4())
+</script>
+    <!--
+      Note: this page is a great way to try React but it's not suitable for production.
+      It slowly compiles JSX with Babel in the browser and uses a large development build of React.
+
+      Read this section for a production-ready setup with JSX:
+      https://reactjs.org/docs/add-react-to-a-website.html#add-jsx-to-a-project
+
+      In a larger project, you can use an integrated toolchain that includes JSX instead:
+      https://reactjs.org/docs/create-a-new-react-app.html
+
+      You can also use React without JSX, in which case you can remove Babel:
+      https://reactjs.org/docs/react-without-jsx.html
+    -->
+</body>
+
+</html>

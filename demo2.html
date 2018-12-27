@@ -10,11 +10,18 @@
     <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.js"></script> -->
 
      <!-- 16版本 -->
-    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <!-- <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script> -->
 
     <!-- Don't use this in production: -->
-    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <!-- <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script> -->
+
+      <!-- 16版本 -->
+      <script src="react.development.js"></script>
+      <script src="react-dom.development.js"></script>
+  
+      <!-- Don't use this in production: -->
+      <script src="babel.min.js"></script>
 </head>
 
 <body>
@@ -27,6 +34,7 @@
     //                         }
     // });
 
+    //只能有一个根节点
     // ReactDOM.render(
     //   <div>
     //     <h1>Hello, world!</h1><HelloMessage name="冯子武"/></div>,
@@ -56,15 +64,112 @@
     // );
 
 
-    let value = "demo1";
-    let buttonName = "submit";
-      ReactDOM.render(
-        <div>
-          <input type="text" value={value}/>
-          <button>{buttonName}</button>
-        </div>,
-        document.getElementById("root")
-      )
+    // let value = "demo1";
+    // let buttonName = "submit";
+    //   ReactDOM.render(
+    //     <div>
+    //       <input type="text" value={value}/>
+    //       <button>{buttonName}</button>
+    //     </div>,
+    //     document.getElementById("root")
+    //   )
+
+    // let person = {name:"fzw",age:17};
+    // let buttonName = "submit";
+    //   ReactDOM.render(
+    //     <div>
+    //       <input type="text" value={person.name}/>
+    //       <input type="text" value={person.age}/>
+    //       <button>{buttonName}</button>
+    //     </div>,
+    //     document.getElementById("root")
+    //   )
+
+    //内联样式
+    // let style ={color:"red",fontSize:"-webkit-xxx-large"};
+    // ReactDOM.render(
+    //   <div>
+    //     <div style={style}>111</div>
+    //   </div>,
+    //   document.getElementById("root")
+    // )
+
+
+    // ReactDOM.render(
+    //   <div>
+    //     <div style={{color:"red",fontSize:"-webkit-xxx-large"}}>111131</div>
+    //   </div>,
+    //   document.getElementById("root")
+    // )
+
+    //错误写法，会提示he `style` prop expects a mapping from style properties to values, not a string. For example, style={{marginRight: spacing + 'em'}} when using JSX.
+    // ReactDOM.render(
+    //   <div>
+    //     <div style="color: red; font-size: -webkit-xxx-large;">221456</div>
+    //   </div>,
+    //   document.getElementById("root")
+    // )
+
+    // ReactDOM.render(
+    //   <div>
+    //     <div className="class1 class2">221456</div>
+    //   </div>,
+    //   document.getElementById("root")
+    // )
+
+    // let prop ={style:{color:"red",fontSize:"-webkit-xxx-large"}};
+    // ReactDOM.render(
+    //   React.createElement('div',null,React.createElement('h1', prop,"我偶是人类")),
+    //   document.getElementById("root")
+    // )
+
+    //错误写法，会提示he `style` prop expects a mapping from style properties to values, not a string. For example, style={{marginRight: spacing + 'em'}} when using JSX.
+    // let prop ={style:"color: red; font-size: -webkit-xxx-large;"};
+    // ReactDOM.render(
+    //   React.createElement('div',null,React.createElement('h1', prop,"我偶是人类")),
+    //   document.getElementById("root")
+    // )
+
+    //突破JSX标签包裹限制,
+    //(1) 返回数组
+    const arr=['fzw','pjh','pjh1']
+    // const Arr=()=>{
+    //   return arr.map((item,index)=>{
+    //     return <p key={index}>{item}</p>
+    //   })
+    // }
+
+    //简化一
+    // const Arr=()=>{
+    //   return arr.map((item,index)=>
+    //      <p key={index}>{item}</p>
+    //   )
+    // }
+
+    // const Arr=()=>{
+    //   return arr.map((item,index)=>
+    //      (<p key={index}>{item}</p>)
+    //   )
+    // }
+
+    //简化二
+    // const Arr=()=>
+    //    (arr.map((item,index)=>
+    //      (<p key={index}>{item}</p>)
+    //   )
+    // )
+    
+    //(2) 高阶组件（High Order Component, hoc）
+    //写法一
+    // const Aux = props => props.children;
+    // ReactDOM.render(
+    //   <Aux>
+    //     <h1>Parallel elements demo</h1>
+    //     <p>Content</p>
+    //   </Aux>,
+    //   document.getElementById("root")
+    // )
+
 
     </script>
     <!--

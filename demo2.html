@@ -132,7 +132,7 @@
 
     //突破JSX标签包裹限制,
     //(1) 返回数组
-    const arr=['fzw','pjh','pjh1']
+    //const arr=['fzw','pjh','pjh1']
     // const Arr=()=>{
     //   return arr.map((item,index)=>{
     //     return <p key={index}>{item}</p>
@@ -170,7 +170,149 @@
     //   document.getElementById("root")
     // )
 
+// 2. 创建 虚拟DOM
+// 参数1：元素名称  参数2：元素属性对象(null表示无)  参数3：当前元素的子元素string||createElement() 的返回值
+// const divVD = React.createElement('div', {
+//   title: 'hello react'
+// }, 'Hello React！！！')
 
+// 3. 渲染
+// 参数1：虚拟dom对象  参数2：dom对象表示渲染到哪个元素内 参数3：回调函数
+// ReactDOM.render(divVD, document.getElementById('root'))
+
+//函数式定义组件，一般用于数据显示 通过 JS函数 创建（无状态组件）
+// function Cat(props)
+// {
+//   return (<div>我的名字是{props.name}，年龄是{props.age}</div>)
+// }
+
+// ReactDOM.render(
+//   <Cat name="jack" age="26"/>,
+//   document.getElementById('root')
+// )
+
+// class Cat{
+//   constructor(age)
+//   {
+//     this.age=age;
+//   }
+//   sayHi()
+//   {
+//     console.log("年龄："+this.age)
+//   }
+//   static sayNo()
+//   {
+//     console.log("年龄不是："+this.age)
+//   }
+//   static sayNo1()
+//   {
+//     console.log("年龄不是："+this.staticAge)
+//   }
+// }
+// Cat.staticAge = "18"
+// var cat = new Cat(29);
+// cat.sayHi();
+// Cat.sayNo();
+// Cat.sayNo1();
+
+// 实现继承的方式
+// class BlackCat extends Cat {
+//   constructor(age) {
+//     // 必须调用super(), super表示父类的构造函数
+//     super(age)
+//     this.skin = 'black'
+//     this.eyeColor = 'black'
+//   }
+//   sayHello()
+//   {
+//     console.log("年龄："+this.age+"皮肤颜色："+this.skin+"眼睛颜色："+this.eyeColor)
+//   }
+// }
+// Cat.staticAge = "18"
+// var blackCat = new BlackCat(88);
+// blackCat.sayHi();
+// BlackCat.sayNo();
+// BlackCat.sayNo1();
+// blackCat.sayHello();
+
+// class WhiteCat extends React.Component {
+//   constructor(props) {
+//     // 必须调用super(), super表示父类的构造函数
+//     super(props)
+//   }
+//   sayHello()
+//   {
+//     console.log("年龄："+this.props.age+"皮肤颜色："+this.props.skin+"眼睛颜色："+this.props.eyeColor)
+//   }
+//   render()
+//   {
+//     return (<div>年龄：{this.props.age}皮肤颜色：{this.props.skin}眼睛颜色：{this.props.eyeColor}</div>)
+//   }
+// }
+// ReactDOM.render(
+//   <WhiteCat age="15" skin="white" eyeColor="white"/>,
+//   document.getElementById('root')
+// )
+
+//props.children：获取组件的内容，比如：<Hello>组件内容</Hello> 中的 组件内容
+// function OrangeCat(props)
+// {
+//   return (<div>年龄：{props.age}皮肤颜色：{props.skin}眼睛颜色：{props.eyeColor},22{props.children}</div>)
+// }
+// ReactDOM.render(
+//   <OrangeCat age="15" skin="Orange" eyeColor="Orange">1111</OrangeCat>,
+//   document.getElementById('root')
+// )
+
+
+// var dv = React.createElement(
+//   "div",
+//   { className: "shopping-list" },
+//   React.createElement(
+//     "h1",
+//     null,
+//     "Shopping List for "
+//   ),
+//   React.createElement(
+//     "ul",
+//     null,
+//     React.createElement(
+//       "li",
+//       null,
+//       "Instagram"
+//     ),
+//     React.createElement(
+//       "li",
+//       null,
+//       "WhatsApp"
+//     )
+//   )
+// )
+// // 渲染
+// ReactDOM.render(dv, document.getElementById('root'))
+
+// // app.js中   使用组件：
+// import Hello2 from './Hello2'
+// // 给 Hello组件 传递 props：username 和 age(如果你想要传递numb类型是数据 就需要向下面这样)
+// ReactDOM.render(<Hello2/>, document.getElementById('root'))
+
+
+// 例：
+class Hello extends React.Component {
+  constructor() {
+    // es6继承必须用super调用父类的constructor
+    super()
+    this.state = {
+      gender: 'male'
+    }
+  }
+  render() {
+    return (
+      <div>性别：{ this.state.gender }</div>
+    )
+  }
+}
+ReactDOM.render(<Hello/>, document.getElementById('root'))
     </script>
     <!--
       Note: this page is a great way to try React but it's not suitable for production.
